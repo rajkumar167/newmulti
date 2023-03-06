@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'this is only tesing with multibranch'
+                echo 'build this project'
             }
         }
         stage('Test') {
@@ -34,13 +34,6 @@ pipeline {
                     sh 'docker push rajkumar167/rajdocker:v2'
                 }
                 
-            }
-
-            post{
-                changed{
-                    // Will trigger only when job status changes: GREEN -> RED, RED -> GREEN, etc
-            notifyStatusChangeViaEmail(currentBuild.currentResult)
-                }
             }
         }
     }
